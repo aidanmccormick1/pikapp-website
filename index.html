@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pi Kappa Phi Lambda Delta at UC Santa Barbara." />
+  <title>Pi Kappa Phi | UCSB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --blue: #005596;
+      --gold: #E7A614;
+      --ink: #111111;
+      --muted: #61666D;
+      --soft: #F5F7FA;
+      --line: #E3E7EC;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 66px;
+    }
+
+    .mark {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .mark img {
+      width: 94px;
+      height: auto;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .links a {
+      text-decoration: none;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--blue);
+      border-radius: 4px;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .button.gold {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .button.light {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 40px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .label {
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      color: var(--blue);
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      font-size: 0.6em;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      opacity: 0.72;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 24px 0 30px;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 520px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--soft);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+    }
+
+    .section {
+      padding: 76px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section.blue {
+      border-top: 0;
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .section.soft {
+      background: var(--soft);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.7fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      color: var(--blue);
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .blue h2 {
+      color: var(--white);
+    }
+
+    .section-head p,
+    .copy {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .blue .section-head p,
+    .blue .copy {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .fact {
+      min-height: 132px;
+      padding: 22px;
+      background: var(--white);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.74fr) minmax(320px, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .copy p + p {
+      margin-top: 16px;
+    }
+
+    .details {
+      display: grid;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail b {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .detail span {
+      color: var(--ink);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .service-photo {
+      border-radius: 4px;
+      overflow: hidden;
+      background: #D9DEE5;
+    }
+
+    .service-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .letter {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .quote {
+      padding-left: 22px;
+      border-left: 4px solid var(--gold);
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .quote p + p {
+      margin-top: 16px;
+    }
+
+    .member-quote {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .signature {
+      margin-top: 18px;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .instagram {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1fr);
+      gap: 24px;
+      align-items: center;
+      padding: 34px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .instagram h2 {
+      margin-bottom: 10px;
+    }
+
+    .instagram p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .instagram-media {
+      min-width: 0 !important;
+      width: 100% !important;
+      max-width: 540px !important;
+      margin: 0 auto !important;
+    }
+
+    .instagram iframe {
+      max-width: 100% !important;
+    }
+
+    .embed-fallback {
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--blue);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .rush-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .rush-card {
+      border: 1px solid rgba(255, 255, 255, 0.26);
+    }
+
+    .rush-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .rush-row:last-child {
+      border-bottom: 0;
+    }
+
+    .rush-row b {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-inner a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-head,
+      .about-grid,
+      .service-grid,
+      .letter,
+      .instagram,
+      .rush-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 680px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-inner {
+        min-height: 58px;
+      }
+
+      .mark img {
+        width: 82px;
+      }
+
+      .links {
+        display: none;
+      }
+
+      .hero {
+        padding: 26px 0 24px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .hero-photo,
+      .hero-photo img {
+        min-height: 360px;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .detail,
+      .rush-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .instagram {
+        padding: 22px;
+      }
+
+      .footer-inner,
+      .footer-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="mark" href="#home" aria-label="Pi Kappa Phi UCSB home">
+        <img src="https://pikapp.org/wp-content/uploads/2025/06/PKP-NameStarShield-LtAligned-Logo-RGB.png" alt="Pi Kappa Phi" />
+      </a>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#philanthropy">Service</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#rush">Rush</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="label">UC Santa Barbara</p>
+          <h1>Pi Kappa Phi <span>Lambda Delta</span></h1>
+          <div class="actions">
+            <a class="button gold" href="#rush">Rush</a>
+            <a class="button light" href="https://www.instagram.com/ucsbpikapps/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/chapter-cover.jpeg" alt="Pi Kappa Phi Lambda Delta chapter members" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About</h2>
+          <p>Founded in Charleston in 1904. Expanded to UCSB in 2025. Colors: white, gold, and royal blue.</p>
+        </div>
+
+        <div class="facts" aria-label="Chapter stats">
+          <div class="fact">
+            <strong>89</strong>
+            <span>Members, Winter 2026</span>
+          </div>
+          <div class="fact">
+            <strong>3.326</strong>
+            <span>Average chapter GPA</span>
+          </div>
+          <div class="fact">
+            <strong>540+</strong>
+            <span>Service hours, Spring Quarter 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap about-grid">
+        <div class="copy">
+          <p>Pi Kappa Phi was founded at the College of Charleston in 1904.</p>
+          <p>In 2025, Pi Kappa Phi officially expanded to UC Santa Barbara, where the Alpha Class began establishing Lambda Delta.</p>
+          <p>Rush is held at the start of fall and spring quarter. Check <a href="https://www.ucsbifc.org" target="_blank" rel="noreferrer">UCSB IFC</a> for more information.</p>
+        </div>
+        <div class="details">
+          <div class="detail">
+            <b>Nickname</b>
+            <span>Pi Kapp</span>
+          </div>
+          <div class="detail">
+            <b>President</b>
+            <span>Ricardo Lorja</span>
+          </div>
+          <div class="detail">
+            <b>Chapter</b>
+            <span>Lambda Delta</span>
+          </div>
+          <div class="detail">
+            <b>Location</b>
+            <span>6595 Segovia, Isla Vista</span>
+          </div>
+          <div class="detail">
+            <b>Colors</b>
+            <span>White, gold, and royal blue</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="philanthropy">
+      <div class="wrap service-grid">
+        <div class="service-photo">
+          <img src="assets/philanthropy-farm.png" alt="Pi Kappa Phi members volunteering at a farm" />
+        </div>
+        <div>
+          <p class="label">Service</p>
+          <h2>Philanthropy</h2>
+          <p class="copy">Pi Kappa Phi supports The Ability Experience, the fraternity's national philanthropy serving people with disabilities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="testimonials">
+      <div class="wrap letter">
+        <div>
+          <p class="label">Brotherhood</p>
+          <h2>Testimonials</h2>
+        </div>
+        <div class="quote">
+          <p>Pi Kappa Phi is built on brotherhood, leadership, and personal growth.</p>
+          <p>Joining Pi Kappa Phi has been one of the best decisions I have made. I found something bigger than myself, met men who pushed me to grow, and built friendships that will stay with me long after college.</p>
+          <p>If you are skeptical about rushing, give it a real chance.</p>
+          <p class="signature">Ricardo Lorja, 3rd year Economics major</p>
+
+          <div class="member-quote">
+            <p>There is no substitute for the brotherhood that Greek life and fraternity give you. Joining Pi Kapp was the best decision because it made UCSB click.</p>
+            <p class="signature">Aidan McCormick, 2nd year HPLG major</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="instagram">
+      <div class="wrap instagram">
+        <div>
+          <h2>Instagram</h2>
+          <p>Rush dates and chapter updates are posted on Instagram.</p>
+          <a class="button" href="https://www.instagram.com/ucsbpikapps/" target="_blank" rel="noreferrer">@ucsbpikapps</a>
+        </div>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/ucsbpikapps/" data-instgrm-version="14">
+          <a class="embed-fallback" href="https://www.instagram.com/ucsbpikapps/" target="_blank" rel="noreferrer">View @ucsbpikapps on Instagram</a>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section blue" id="rush">
+      <div class="wrap rush-grid">
+        <div>
+          <p class="label">Rush Pi Kapp</p>
+          <h2>Come meet the chapter.</h2>
+          <p class="copy">Fall and spring quarter. Dates are posted on Instagram.</p>
+          <div class="actions" style="margin-top: 24px;">
+            <a class="button gold" href="https://www.instagram.com/ucsbpikapps/" target="_blank" rel="noreferrer">DM on Instagram</a>
+            <a class="button light" href="https://www.ucsbifc.org" target="_blank" rel="noreferrer">UCSB IFC</a>
+          </div>
+        </div>
+        <div class="rush-card">
+          <div class="rush-row">
+            <b>Where</b>
+            <span>6595 Segovia, Isla Vista</span>
+          </div>
+          <div class="rush-row">
+            <b>When</b>
+            <span>Fall and spring quarter</span>
+          </div>
+          <div class="rush-row">
+            <b>Contact</b>
+            <span>@ucsbpikapps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>&copy; 2026 Pi Kappa Phi Lambda Delta at UCSB</span>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/ucsbpikapps/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://pikapp.org" target="_blank" rel="noreferrer">National</a>
+        <a href="https://www.ucsbifc.org/kappasigma-1" target="_blank" rel="noreferrer">UCSB IFC</a>
+      </div>
+    </div>
+  </footer>
+  <script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
